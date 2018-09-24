@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GedditWeb.Areas.Admin.Models.POI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,8 +18,41 @@ namespace GedditWeb.Areas.Admin.Controllers
 
         public ActionResult Create()
         {
+            POIViewModel model = new POIViewModel() { State = POICreationState.Description };
 
-            return View();
+            return View(model);
         }
+
+
+        [HttpPost]
+        public ActionResult Create(POIViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            switch (model.State)
+            {
+                case POICreationState.Description:
+                    model.State = POICreationState.Location;
+                    break;
+
+                case POICreationState.Location:
+                    model.State = POICreationState.Prize;
+                    break; 
+
+                case POICreationState.Prize:
+                    //Last step, save POI and redirect to index
+                    return RedirectToAction("Index", "POI");
+            }
+
+
+            return View(model);
+        }
+
+
+
+
+
+
     }
 }
