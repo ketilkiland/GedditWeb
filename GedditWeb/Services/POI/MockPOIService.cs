@@ -13,5 +13,10 @@ namespace GedditWeb.Services.POI
         {
             throw new NotImplementedException();
         }
+
+        public Task<ServiceResult<GetPOIsResult>> GetPOIs(GetPOIsRequest request)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

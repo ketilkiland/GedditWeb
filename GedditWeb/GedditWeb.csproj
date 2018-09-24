@@ -8347,6 +8347,8 @@
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Admin\Controllers\POIController.cs" />
     <Compile Include="Areas\Admin\Models\Auth\LoginModel.cs" />
+    <Compile Include="Areas\Admin\Models\POI\NewPOIViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\POI\POILocation.cs" />
     <Compile Include="Filters\UserProfileActionFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -8359,6 +8361,8 @@
     <Compile Include="Services\Account\IAccountService.cs" />
     <Compile Include="Services\POI\DTO\CreatePOIRequest.cs" />
     <Compile Include="Services\POI\DTO\CreatePOIResult.cs" />
+    <Compile Include="Services\POI\DTO\GetPOIsRequest.cs" />
+    <Compile Include="Services\POI\DTO\GetPOIsResult.cs" />
     <Compile Include="Services\POI\IPOIService.cs" />
     <Compile Include="Services\POI\MockPOIService.cs" />
     <Compile Include="Services\ServiceResult.cs" />

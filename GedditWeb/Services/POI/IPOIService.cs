@@ -10,5 +10,6 @@ namespace GedditWeb.Services.POI
     public interface IPOIService
     {
         Task<ServiceResult<CreatePOIResult>> CreatePOI(CreatePOIRequest request);
+        Task<ServiceResult<GetPOIsResult>> GetPOIs(GetPOIsRequest request);
     }
 }
