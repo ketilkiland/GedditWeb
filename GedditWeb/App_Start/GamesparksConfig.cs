@@ -11,8 +11,8 @@ namespace GedditWeb.App_Start
         public static void Initialize()
         {
             string apiKey = "R314803U8WmT";
-            string credentials = "server";
-            string secret = "iXxGLT92D3k9Gn8r4UGljcKmWUgUmqAk";
+            string credentials = "device";
+            string secret = "NpGUEa0tenlxZqJwhcNfg3CfDixVYGyg";
             bool isLive = false;
 
             GameSparksSettings.Set(apiKey, credentials, secret, isLive);

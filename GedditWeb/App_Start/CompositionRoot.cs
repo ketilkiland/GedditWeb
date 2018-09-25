@@ -1,4 +1,5 @@
 ﻿using GedditWeb.Services.Account;
+using GedditWeb.Services.POI;
 using System.Web.Mvc;
 using Unity;
 using Unity.AspNet.Mvc;
@@ -12,6 +13,7 @@ namespace GedditWeb.App_Start
             var container = new UnityContainer();
 
             container.RegisterInstance<IAccountService>(new GamesparksAccountService());
+            container.RegisterInstance<IPOIService>(new GamesparksPOIService());
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }

@@ -3,20 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using GedditWeb.Models;
 using GedditWeb.Services.POI.DTO;
 
 namespace GedditWeb.Services.POI
 {
     public class MockPOIService : IPOIService
     {
-        public Task<ServiceResult<CreatePOIResult>> CreatePOI(CreatePOIRequest request)
+        private List<POIModel> _pois = new List<POIModel>();
+               
+
+        public async Task<ServiceResult<CreatePOIResult>> CreatePOI(CreatePOIRequest request)
         {
-            throw new NotImplementedException();
+            return await Task.Run(() => 
+            {
+                POIModel poi = request.POI;
+
+                poi.Id = (_pois.Count + 1001).ToString();
+                _pois.Add(poi);
+
+                return new ServiceResult<CreatePOIResult>(true, new CreatePOIResult() { POI = poi });
+            });
         }
 
-        public Task<ServiceResult<GetPOIsResult>> GetPOIs(GetPOIsRequest request)
+        public async Task<ServiceResult<GetPOIsResult>> GetPOIs(GetPOIsRequest request)
         {
-            throw new NotImplementedException();
+            return await Task.Run(() => 
+            {
+                return new ServiceResult<GetPOIsResult>(true, new GetPOIsResult(null) { POIs = _pois });
+            });
         }
     }
 }
