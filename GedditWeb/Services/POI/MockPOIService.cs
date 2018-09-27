@@ -4,7 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using GedditWeb.Models;
-using GedditWeb.Services.POI.DTO;
+using GedditWeb.Services.POI.Requests;
+using GedditWeb.Services.POI.Responses;
 
 namespace GedditWeb.Services.POI
 {
@@ -13,7 +14,7 @@ namespace GedditWeb.Services.POI
         private List<POIModel> _pois = new List<POIModel>();
                
 
-        public async Task<ServiceResult<CreatePOIResult>> CreatePOI(CreatePOIRequest request)
+        public async Task<ServiceResult<CreatePOIResponse>> CreatePOI(CreatePOIRequest request)
         {
             return await Task.Run(() => 
             {
@@ -22,15 +23,15 @@ namespace GedditWeb.Services.POI
                 poi.Id = (_pois.Count + 1001).ToString();
                 _pois.Add(poi);
 
-                return new ServiceResult<CreatePOIResult>(true, new CreatePOIResult() { POI = poi });
+                return new ServiceResult<CreatePOIResponse>(true, new CreatePOIResponse() { POI = poi });
             });
         }
 
-        public async Task<ServiceResult<GetPOIsResult>> GetPOIs(GetPOIsRequest request)
+        public async Task<ServiceResult<GetPOIsResponse>> GetPOIs(GetPOIsRequest request)
         {
             return await Task.Run(() => 
             {
-                return new ServiceResult<GetPOIsResult>(true, new GetPOIsResult(null) { POIs = _pois });
+                return new ServiceResult<GetPOIsResponse>(true, new GetPOIsResponse() { POIs = _pois });
             });
         }
     }

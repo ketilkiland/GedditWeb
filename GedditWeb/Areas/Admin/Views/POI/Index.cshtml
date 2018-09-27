@@ -38,34 +38,30 @@
                         </thead>
                         <tbody>
 
-@foreach (var poi in Model)
-{
+                            @foreach (var poi in Model)
+                            {
+                                <tr class="odd gradeX">
+                                    <td width="1%" class="f-s-600 text-inverse">@poi.Id</td>
+                                    <td><b>@poi.Name</b></td>
+                                    <td>@poi.Description</td>
+                                    <td>@poi.AssetKey</td>
+                                    <td>@poi.Latitude</td>
+                                    <td>@poi.Longitude</td>
+                                    <td>@poi.PrizeName</td>
+                                    <td>
+                                        <span class="label label-secondary">Not published</span>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn btn-xs btn-primary"><i class="fa fa-list"></i> Details</a>
+                                        <a href="#" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i> Edit</a>
+                                        <a href="#" class="btn btn-xs btn-danger"><i class="fa fa-trash-alt"></i> Delete</a>
+                                    </td>
+                                </tr>
+                            }
 
-                            <tr class="odd gradeX">
-                                <td width="1%" class="f-s-600 text-inverse">@poi.Id</td>
-                                <td><b>@poi.Name</b></td>
-                                <td>@poi.Description</td>
-                                <td>@poi.AssetKey</td>
-                                <td>@poi.Latitude</td>
-                                <td>@poi.Longitude</td>
-                                <td>@poi.PrizeName</td>
-                                <td>
-                                    <span class="label label-secondary">Not published</span>
-                                </td>
-                                <td>
-                                    <a href="#" class="btn btn-xs btn-primary"><i class="fa fa-list"></i> Details</a>
-                                    <a href="#" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i> Edit</a>
-                                    <a href="#" class="btn btn-xs btn-danger"><i class="fa fa-trash-alt"></i> Delete</a>
-                                </td>
-
-                            </tr>
-}
                         </tbody>
                     </table>
                 </div>
-
-
-
 
             </div>
         </div>

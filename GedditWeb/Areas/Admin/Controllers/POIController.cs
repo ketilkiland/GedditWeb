@@ -1,11 +1,7 @@
 ﻿using GedditWeb.Areas.Admin.Models.POI;
 using GedditWeb.Services.POI;
-using GedditWeb.Services.POI.DTO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using GedditWeb.Services.POI.Requests;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 
 namespace GedditWeb.Areas.Admin.Controllers
@@ -23,7 +19,7 @@ namespace GedditWeb.Areas.Admin.Controllers
         // GET: Admin/POI
         public async Task<ActionResult> Index()
         {
-            var response = await _poiService.GetPOIs(new Services.POI.DTO.GetPOIsRequest());
+            var response = await _poiService.GetPOIs(new GetPOIsRequest());
            
             return View(response.Result.POIs);
         }

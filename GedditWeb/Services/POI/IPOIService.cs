@@ -1,4 +1,5 @@
-﻿using GedditWeb.Services.POI.DTO;
+﻿using GedditWeb.Services.POI.Requests;
+using GedditWeb.Services.POI.Responses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace GedditWeb.Services.POI
 {
     public interface IPOIService
     {
-        Task<ServiceResult<CreatePOIResult>> CreatePOI(CreatePOIRequest request);
-        Task<ServiceResult<GetPOIsResult>> GetPOIs(GetPOIsRequest request);
+        Task<ServiceResult<CreatePOIResponse>> CreatePOI(CreatePOIRequest request);
+        Task<ServiceResult<GetPOIsResponse>> GetPOIs(GetPOIsRequest request);
     }
 }

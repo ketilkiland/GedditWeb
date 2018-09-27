@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace GedditWeb.Services.POI.DTO
+namespace GedditWeb.Services.POI.Responses
 {
-    public class CreatePOIResult
+    public class GetPOIsResponse
     {
-        public POIModel POI { get; set; }
+        public List<POIModel> POIs { get; set; }
     }
 }
