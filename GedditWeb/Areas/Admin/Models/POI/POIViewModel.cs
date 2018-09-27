@@ -14,8 +14,7 @@ namespace GedditWeb.Areas.Admin.Models.POI
         public string AssetKey { get; set; }
 
         public double Latitude { get; set; }
-        public double Longitude { get; set; }
-
+        public double Longitude { get; set; }      
 
         public string PrizeName { get; set; }
     }
