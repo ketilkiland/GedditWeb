@@ -13,7 +13,8 @@ namespace GedditWeb.App_Start
             var container = new UnityContainer();
 
             container.RegisterInstance<IAccountService>(new GamesparksAccountService());
-            container.RegisterInstance<IPOIService>(new GamesparksPOIService());
+            //container.RegisterInstance<IPOIService>(new GamesparksPOIService());
+            container.RegisterInstance<IPOIService>(new MockPOIService());
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }

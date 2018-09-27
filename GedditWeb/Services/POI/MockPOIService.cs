@@ -30,7 +30,7 @@ namespace GedditWeb.Services.POI
         {
             return await Task.Run(() => 
             {
-                return new ServiceResult<GetPOIsResult>(true, new GetPOIsResult(null) { POIs = _pois });
+                return new ServiceResult<GetPOIsResult>(true, new GetPOIsResult() { POIs = _pois });
             });
         }
     }

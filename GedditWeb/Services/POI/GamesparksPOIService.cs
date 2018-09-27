@@ -65,7 +65,31 @@ namespace GedditWeb.Services.POI
             
 
 
-            return new ServiceResult<GetPOIsResult>(true, new GetPOIsResult(response.ScriptData));
+            return new ServiceResult<GetPOIsResult>(true, CreateGetPOIsResult(response.ScriptData));
         }
+
+        private GetPOIsResult CreateGetPOIsResult(List<POIDto> dto)
+        {
+            var result = new GetPOIsResult();
+            result.POIs = new List<Models.POIModel>();
+
+            int count = 1001;
+            foreach (var dtoPoi in dto)
+            {
+                result.POIs.Add(new Models.POIModel()
+                {
+                    Id = count.ToString(),
+                    Name = dtoPoi.name,
+                    Description = dtoPoi.description,
+                    AssetKey = dtoPoi.aspect.prefabKey,
+                    Latitude = dtoPoi.locations.First().coordinates[0],
+                    Longitude = dtoPoi.locations.First().coordinates[1],
+                    PrizeName = ""
+                });
+            }
+
+            return result;
+        }
+
     }
 }
